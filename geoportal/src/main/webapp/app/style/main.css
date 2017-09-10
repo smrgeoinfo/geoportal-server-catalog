@@ -76,6 +76,8 @@ body {
 }
 .navbar-inverse .glyphicon, .navbar-inverse .navbar-brand {
   color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
 }
 .g-app > .navbar {
 	min-height: 5px;
@@ -118,11 +120,14 @@ body {
 .g-search-pane {
 	margin: 0px 20px 20px 20px; 
 	padding: 0px;
+
 }
 .g-search-pane-left {
-	width: 25%; 
+	width: 25%;
+
 	min-width: 100px; 
-	float: left; 
+	float: left;
+
 }
 .g-search-pane-right {
 	width: 73%; 
@@ -394,3 +399,42 @@ body {
   z-index: 99;
 }
 
+
+.aGrid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 20px 300px auto 300px 20px ;
+  background-color: #fff;
+}
+
+.aBox {
+
+
+  border-radius: 5px;
+  padding: 20px;
+
+
+}
+
+.aaa {
+  grid-column: 1 / span 4;
+
+}
+
+.aa {
+  grid-column: 2 / span 2;
+  background-color: #ABCADE;
+
+}
+.dd {
+  grid-column: 2 ;
+  grid-row: 3 / span 2;
+}
+.bb {
+  grid-column: 4 ;
+  grid-row: 2 ;
+}
+.cc {
+  grid-column: 3 / span 2;
+  grid-row: 4 ;
+}

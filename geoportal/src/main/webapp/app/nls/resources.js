@@ -30,7 +30,7 @@ define({
     },
     
     nav: {
-      brand: "Geoportal",
+      brand: "Cinergi",
       home: "Home",
       search: "Search",
       map: "Map",

@@ -34,7 +34,8 @@ define(["dojo/_base/declare",
         "app/content/ChangeOwner",
         "app/content/MetadataEditor",
         "app/context/metadata-editor",
-        "app/content/UploadMetadata"], 
+        "app/content/UploadMetadata",
+    "app/prov/Prov"],
 function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConstruct,
     _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, Tooltip, template, i18n, 
     AppClient, ServiceType, util, ConfirmationDialog, ChangeOwner, 
@@ -77,14 +78,18 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
       item._id = hit._id; 
       var links = this._uniqueLinks(item);
       util.setNodeText(this.titleNode,item.title);
-      this._renderOwnerAndDate(item);
-      util.setNodeText(this.descriptionNode,item.description);
+      //this._renderOwnerAndDate(item);
+      this._renderSourceAndDate(item);
+      //util.setNodeText(this.descriptionNode,item.description);
+      this._renderDescription(item);
       this._renderThumbnail(item);
       this._renderItemLinks(hit._id,item);
       this._renderLinksDropdown(item,links);
       this._renderOptionsDropdown(hit._id,item);
       this._renderAddToMap(item,links);
       this._renderServiceStatus(item);
+      this._renderWorkbenchLinksDropdown(item,links);
+       this._renderCinergiLinks(hit._id,item);
     },
     
     _canEditMetadata: function(item,isOwner,isAdmin,isPublisher) {
@@ -470,8 +475,85 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
         }
       }
       return null;
-    }
-    
+    },
+      _renderSourceAndDate: function(item) {
+          var owner = item.src_source_name_s;
+          var date = item.sys_modified_dt;
+          var idx, text = "";
+
+          if (typeof owner === "string" && owner.length > 0) {
+              if (text.length > 0) text += " ";
+              text = "Source: " + owner;
+          }
+          if (AppContext.appConfig.searchResults.showDate && typeof date === "string" && date.length > 0) {
+              idx = date.indexOf("T");
+              if (idx > 0) date =date.substring(0,idx);
+              text += " Last Modified: " + date;
+          }          if (text.length > 0) {
+              util.setNodeText(this.ownerAndDateNode,text);
+          }
+      },
+      _renderWorkbenchLinksDropdown: function(item,links) {
+          if ( ! Array.isArray(item.services_nst)) return;
+          if( item.services_nst.length === 0) return;
+          var dd = domConstruct.create("div",{
+              "class": "dropdown",
+              "style": "display:inline-block;"
+          },this.actionsNode);
+          var ddbtn = domConstruct.create("a",{
+              "class": "dropdown-toggle",
+              "href": "#",
+              "data-toggle": "dropdown",
+              "aria-haspopup": true,
+              "aria-expanded": true,
+              innerHTML: "Workbench"
+          },dd);
+          domConstruct.create("span",{
+              "class": "caret"
+          },ddbtn);
+          var ddul = domConstruct.create("ul",{
+              "class": "dropdown-menu",
+          },dd);
+          if (lang.isArray(item.services_nst)){
+          array.forEach(item.services_nst, function(u){
+              var ddli = domConstruct.create("li",{},ddul);
+              domConstruct.create("a",{
+                  "class": "small",
+                  href: u.url_s,
+                  target: "_blank",
+                  innerHTML: u.url_type_s
+              },ddli);
+          });
+          }
+          this._mitigateDropdownClip(dd,ddul);
+      },
+      _renderCinergiLinks: function(itemId,item) {
+          // if categories_cat exists, then these should exist
+          if (item.categories_cat) {
+
+          var actionsNode = this.actionsNode;
+          var uri = "app/prov/templates/Prov.html?source=" + encodeURIComponent(item.fileid);
+          var htmlNode = domConstruct.create("a", {
+              href: uri + "&ttl=" + encodeURIComponent(item.title),
+              target: "_blank",
+              innerHTML: "Provenance"
+          }, actionsNode);
+          var uri2 = "http://mdeditor.usgin.org/?docId=" + encodeURIComponent(item.fileid);
+          var htmlNode = domConstruct.create("a", {
+              href: uri2,
+              target: "_blank",
+              innerHTML: "Edit"
+          }, actionsNode);
+      }
+
+      },
+      _renderDescription: function (item) {
+      var desc = item.description;
+      if (desc && desc.indexOf("REQUIRED FIELD") > -1 ){
+        desc = "";
+      }
+          util.setNodeText(this.descriptionNode,desc);
+      }
   });
   
   return oThisClass;

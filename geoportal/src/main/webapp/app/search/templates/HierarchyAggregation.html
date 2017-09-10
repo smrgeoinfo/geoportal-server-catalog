@@ -2,11 +2,16 @@
 	<div class="g-drop-pane" data-dojo-type="app/search/DropPane" 
 	  data-dojo-attach-point="dropPane"
 	  data-dojo-props="title:'${label}',open:${open}">
-	  <div class="g-entries g-entry-links" data-dojo-attach-point="entriesNode"></div>
+
+
+		<!--<div data-dojo-type="dijit.Tree" data-dojo-attach-point="categoryNode"
+                     data-dojo-props="openOnClick:true, showRoot:false, persist:false"></div>
+-->
+		<div data-dojo-attach-point="categoryNode"></div>
 	</div>
 	<div data-dojo-type="dijit/Tooltip"
 		 data-dojo-attach-point="ToolTip"
 		 data-dojo-props="position:['below']">
-		Terms from ${field}.
+		Click to Expand an item
 	</div>
-</div>
+    </div>

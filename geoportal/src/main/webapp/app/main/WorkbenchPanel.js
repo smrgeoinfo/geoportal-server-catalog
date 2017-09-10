@@ -15,20 +15,9 @@
 define(["dojo/_base/declare",
         "dojo/_base/lang",
         "app/common/Templated",
-        "dojo/text!./templates/SearchPanel.html",
+        "dojo/text!./templates/WorkbenchPanel.html",
         "dojo/i18n!../nls/resources",
-        "app/search/SearchPane",
-        "app/search/PageUrlFilter",
-        "app/search/SearchBox",
-        "app/search/SpatialFilter",
-        "app/search/DateFilter",
-        "app/search/TemporalFilter",
-        "app/search/TermsAggregation",
-        "app/search/NumericFilter",
-        "app/search/HierarchyAggregation",
-        "app/search/AppliedFilters",
-        "app/search/ResultsPane",
-    "app/prov/Prov"],
+        ],
 function(declare, lang, Templated, template, i18n) {
 
   var oThisClass = declare([Templated], {

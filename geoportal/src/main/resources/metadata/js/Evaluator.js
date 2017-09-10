@@ -25,9 +25,21 @@ load("classpath:metadata/js/EvaluatorFor_ArcGIS.js");
 load("classpath:metadata/js/EvaluatorFor_DC.js");
 load("classpath:metadata/js/EvaluatorFor_FGDC.js");
 load("classpath:metadata/js/EvaluatorFor_ISO.js");
+load("classpath:metadata/js/EvaluatorFor_ISO_CINERGI.js");
 
 G._metadataTypes =  {
-  "iso19115": {
+    "iso19115-CINERGI": {
+        key: "iso19115-CINERGI",
+        evaluator: G.evaluators.cinergi,
+        //interrogationXPath: "/gmd:MD_Metadata/gmd:contact/gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString[text()='Earthcube CINERGI Metadata Pipeline']",
+        interrogationXPath: "/gmi:MI_Metadata/gmd:contact/gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString[text()='Earthcube CINERGI Metadata Pipeline']",
+        //identifier: "http://www.isotc211.org/2005/gmi",
+        identifier: "CINERGI_ISO19115",
+        detailsXslt: "metadata/details/iso-details/xml-to-html-ISO.xsl",
+  //      xsdLocation: "https://www.ngdc.noaa.gov/metadata/published/xsd/schema.xsd",
+   //     schematronXslt: null
+    },
+    "iso19115": {
     key: "iso19115",
     evaluator: G.evaluators.iso,
     interrogationXPath: "/gmd:MD_Metadata",
@@ -39,7 +51,7 @@ G._metadataTypes =  {
   },
   "iso19115-2": {
     key: "iso19115-2",
-    evaluator: G.evaluators.iso,
+    evaluator: G.evaluators.cinergi, // we enhance these
     interrogationXPath: "/gmi:MI_Metadata",
     identifier: "http://www.isotc211.org/2005/gmi",
     detailsXslt: "metadata/details/iso-details/xml-to-html-ISO.xsl",
