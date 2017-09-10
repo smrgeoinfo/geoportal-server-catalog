@@ -30,10 +30,11 @@ define({
     },
     
     nav: {
-      brand: "Interdisciplinary Earth Data Alliance, Integrated Catalog",
+      brand: "Geoportal",
       home: "Home",
       search: "Search",
       map: "Map",
+      about: "About",
       content: "Content",
       welcomePattern: "{name}",
       signIn: "Sign In",
