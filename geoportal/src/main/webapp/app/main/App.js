@@ -23,6 +23,7 @@ define(["dojo/_base/declare",
         "app/main/SearchPanel",
         "app/main/MapPanel",
 
+
         "app/main/WorkbenchPanel",
         "app/main/ContributePanel",
         "app/main/AboutPanel",
@@ -30,6 +31,7 @@ define(["dojo/_base/declare",
         "app/content/UploadMetadata"], 
 function(declare, lang, topic, appTopics, Templated, template, i18n, util, SearchPanel, MapPanel
     ,WorkbenchPanel, ContributePanel, AboutPanel,
+
     MetadataEditor, UploadMetadata) {
 
   var oThisClass = declare([Templated], {
