@@ -5,14 +5,14 @@
       <div data-dojo-type="app/search/SearchBox"></div>
         <div style="overflow-y: auto;max-height:  90%;">
 <div id="infoSearchText">Information Search</div>
-      <div  data-dojo-type="app/search/SpatialFilter"
+<!--       <div  data-dojo-type="app/search/SpatialFilter"
         data-dojo-props="
           field: 'envelope_geo',
           pointField: 'envelope_cen_pt',
           allowAggregation: true,
           open: true,
           label:'${i18n.search.criteria.map}'">
-      </div>
+      </div> -->
 
 
       <div data-dojo-type="app/search/DateFilter"
@@ -26,7 +26,7 @@
           fieldsOperator: 'should'">
       </div>
 
-      <div data-dojo-type="app/search/TemporalFilter"
+<!--       <div data-dojo-type="app/search/TemporalFilter"
         data-dojo-props="
           nestedPath:'timeperiod_nst',
           field:'timeperiod_nst.begin_dt',
@@ -35,7 +35,7 @@
           open:false,
           label:'Temporal Extent',
           fieldsOperator: 'should'">
-      </div>
+      </div> -->
 
      <div data-dojo-type="app/search/TemporalFilter"
            data-dojo-props="
@@ -50,7 +50,7 @@
 
       <!-- e.g. field:'category_cat',label:'Category',props:{size:20,min_doc_count:500} (names in app.nls.resources.js)-->
 
-      <div data-dojo-type="app/search/HierarchyAggregation"
+ <!--      <div data-dojo-type="app/search/HierarchyAggregation"
            data-dojo-props="field:'categories_cat',rootTerm:'science domain',
              label:'CINERGI Domain',props:{size:1000},
             extendedToolTip:'CINERGI Keywords for Science Domain'">
@@ -64,7 +64,7 @@
              label:'CINERGI Parameter',props:{size:1000}">
       </div>
 
-      <!-- e.g. field:'keywords_s',label:'Keywords',props:{size:20,min_doc_count:500} -->
+      e.g. field:'keywords_s',label:'Keywords',props:{size:20,min_doc_count:500}
       <div data-dojo-type="app/search/TermsAggregation"
            data-dojo-props="field:'keywords_s',label:'Original Keywords',props:{size:200}">
       </div>
@@ -91,7 +91,7 @@
           open:false,
           label:'Metadata Added'">
       </div>
-      <!--
+     
       <div data-dojo-type="app/search/DateFilter"
         data-dojo-props="field:'sys_created_dt',interval:'day',allowHistogram:false,label:'Created'">
       </div>
@@ -101,13 +101,13 @@
       </div>
       -->
 
-      <div data-dojo-type="app/search/TermsAggregation"
+<!--       <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="field:'sys_metadatatype_s',label:'${i18n.search.criteria.metadataType}'">
       </div>  
-
+ -->
 
       <div data-dojo-type="app/search/TermsAggregation"
-        data-dojo-props="field:'src_source_name_s',label:'Metadata Collection',props:{size:40}">
+        data-dojo-props="field:'src_source_name_s',label:'Partner system',props:{size:40}">
       </div>
 
 
