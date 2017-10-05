@@ -28,9 +28,10 @@ load("classpath:metadata/js/EvaluatorFor_ISO.js");
 //load("classpath:metadata/js/EvaluatorFor_ISO_CINERGI.js");
 
 G._metadataTypes =  
+{
 /*
  // smr 2017-10-03 comment out for now
- {
+
     "iso19115-CINERGI": {
         key: "iso19115-CINERGI",
         evaluator: G.evaluators.cinergi,
@@ -52,7 +53,7 @@ G._metadataTypes =
     interrogationXPath: "//gmd:MD_Metadata",
     identifier: "http://www.isotc211.org/2005/gmd",
     detailsXslt: "metadata/details/iso-details/ISO19139ToHTML.xsl",
-    xsdLocation: "http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd",
+//    xsdLocation: "http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd",
     //schematronXslt: "metadata/schematron/Gemini2_R2r2-schematron.xslt",
     toKnownXslt: null
   },
@@ -64,7 +65,7 @@ G._metadataTypes =
     interrogationXPath: "//gmi:MI_Metadata",
     identifier: "http://www.isotc211.org/2005/gmi",
     detailsXslt: "metadata/details/iso-details/ISO19139ToHTML.xsl",
-    xsdLocation: "http://ngdc.noaa.gov/metadata/published/xsd/schema.xsd",
+//    xsdLocation: "http://ngdc.noaa.gov/metadata/published/xsd/schema.xsd",
     schematronXslt: null
   },
   "fgdc": {
