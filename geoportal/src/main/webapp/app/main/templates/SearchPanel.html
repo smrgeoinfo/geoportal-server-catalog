@@ -23,16 +23,14 @@
           toField:'timeperiod_nst.end_dt',
           interval:'year',
           open:false,
-          label:'Temporal Extent (text)',
+          label:'Acquisition Date Interval',
           fieldsOperator: 'should'">
       </div>
 
 
      <div data-dojo-type="app/search/TemporalFilter"
            data-dojo-props="
-
           field:'apiso_PublicationDate_dt',
-
           interval:'year',
           open:false,
           label:'Publication Date',
@@ -40,42 +38,48 @@
       </div>
 
       <div data-dojo-type="app/search/TermsAggregation"
-        data-dojo-props="field:'src_source_name_s',label:'Partner system',props:{size:40}">
+        data-dojo-props="
+        field:'src_source_name_s',
+        label:'Partner system',
+        props:{size:40, order:{_term:'asc'}}">
       </div>
 
       <!-- added by SMR 2017-09-23 -->
       <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'cited_individual_s',
-		label:'Cited Individual',
-		props:{size:100, order:{_term:'asc'}}">
+		label:'Investigator/Author',
+		props:{size:200, order:{_term:'asc'}}">
       </div>
+ 
+	  <div data-dojo-type="app/search/TermsAggregation"
+        data-dojo-props="
+		field:'platform_instrument_keywords_s',
+		label:'Platforms/Instruments',
+		props:{size:200, order:{_term:'asc'}}}">
+      </div> 
       
-      	  <!-- SMR 2017-05-07 update label to indicate only ECL has theme keywords -->
       <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
-		field:'theme_keywords_s',
-		label:'Theme keywords',
-		props:{size:50}">
-      </div> 
-      <div data-dojo-type="app/search/TermsAggregation"
+		field:'keywords_s',
+		label:'Common tags',
+		props:{size:100}">
+      </div>
+      
+<!--  <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'place_keywords_s',
 		label:'Place keywords',
 		props:{size:50}">
       </div>       
-	  <div data-dojo-type="app/search/TermsAggregation"
-        data-dojo-props="
-		field:'platform_keywords_s',
-		label:'Platforms',
-		props:{size:50}">
-      </div> 
+
       <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'instrument_keywords_s',
 		label:'Instruments',
 		props:{size:50}">
-      </div>
+      </div> -->
+      
  	  <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'project_keywords_s',
