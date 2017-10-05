@@ -47,21 +47,25 @@ G.evaluators.iso = {
     G.evalProp(task,item,iden,"thumbnail_s","gmd:graphicOverview/gmd:MD_BrowseGraphic/gmd:fileName/gco:CharacterString");
       
     /* IEDA customizations */
-//these are the metadata contacts
- G.evalProps(task, item, root, "contact_organization_s", "gmd:contact/gmd:CI_ResponsibleParty/gmd:organisationName[not(gco:CharacterString='missing')]/gco:CharacterString | //gmd:pointOfContact/gmd:CI_ResponsibleParty/gmd:organisationName[not(gco:CharacterString='missing')]/gco:CharacterString | //gmd:distributorContact/gmd:CI_ResponsibleParty/gmd:organisationName[not(gco:CharacterString='missing')]/gco:CharacterString");
+//these are the points of contacts, for metadata, the resource, or distribution; no distinction made
+ G.evalProps(task, item, root, "contact_organization_s", "//gmd:CI_RoleCode[contains(text(),'ontact') or contains(@codeListValue, 'ontact')]/../../gmd:organisationName[not(contains(gco:CharacterString,'issing'))]/gco:CharacterString");
  G.evalProps(task, item, root, "contact_individual_s", "//gmd:identificationInfo//gmd:CI_ResponsibleParty[gmd:role/gmd:CI_RoleCode/@codeListValue='pointOfContact']/gmd:individualName[not(gco:CharacterString='missing')]/gco:CharacterString | //gmd:pointOfContact/gmd:CI_ResponsibleParty[gmd:role/gmd:CI_RoleCode/@codeListValue='pointOfContact']/gmd:individualName[not(gco:CharacterString='missing')]/gco:CharacterString | //gmd:distributorContact/gmd:CI_ResponsibleParty[gmd:role/gmd:CI_RoleCode/@codeListValue='pointOfContact']/gmd:individualName[not(gco:CharacterString='missing')]/gco:CharacterString");
 //these are the agents cited in the identification section, citedResponsibleParty or pointOfContact
- G.evalProps(task, item, root, "cited_individual_s", "//gmd:CI_RoleCode[contains(text(),'inciple') or contains(@codeListValue, 'uthor') or contains(@codeListValue, 'riginator') or contains(@codeListValue, 'inciple')]/../../gmd:individualName[not(contains(gco:CharacterString,'issing'))]/gco:CharacterString";
- G.evalProps(task, item, iden, "cited_organization_s", "//gmd:CI_ResponsibleParty/gmd:organisationName[not(gco:CharacterString='missing')]/gco:CharacterString");
+ G.evalProps(task, item, root, "cited_individual_s", "//gmd:CI_RoleCode[contains(text(),'inciple') or contains(@codeListValue, 'uthor') or contains(@codeListValue, 'riginator') or contains(@codeListValue, 'inciple')]/../../gmd:individualName[not(contains(gco:CharacterString,'issing'))]/gco:CharacterString");
+ G.evalProps(task, item, root, "cited_organization_s", "//gmd:CI_RoleCode[contains(text(),'inciple') or contains(@codeListValue, 'uthor') or contains(@codeListValue, 'riginator') or contains(@codeListValue, 'inciple')]/../../gmd:organisationName[not(contains(gco:CharacterString,'issing'))]/gco:CharacterString");
  G.evalProps(task, item, root, "metadata_org_iconlink_s", "gmd:contact/gmd:CI_ResponsibleParty//CI_OnlineResource/linkage");
+
+ /*  Use Apiso keyword to catch all, since keywording is not systematic
  G.evalProps(task, item, root, "theme_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='theme']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='theme']/../../gmd:keyword/gmx:Anchor");
  G.evalProps(task, item, root, "place_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='place']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='place']/../../gmd:keyword/gmx:Anchor | gmd:geographicIdentifier//gmd:code/gco:CharacterString");
- /*  pick up keywords with other type, or no type */
+   pick up keywords with other type, or no type 
  G.evalProps(task, item, root, "other_keywords_s", " //gmd:MD_Keywords[not(child::*[local-name()='type'])]/gmd:keyword/gco:CharacterString | //gmd:MD_Keywords[not(child::*[local-name()='type'])]/gmd:keyword/gmx:Anchor");
+*/ 
  
- /* separate index items for instrument and platform */
- G.evalProps(task, item, root, "platform_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='platform']/../../gmd:keyword[not(gco:CharacterString='Not provided')]/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='platform']/../../gmd:keyword/gmx:Anchor");
- G.evalProps(task, item, root, "instrument_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='instrument']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='instrument']/../../gmd:keyword/gmx:Anchor");
+ /* combine index items for instrument and platform */
+ G.evalProps(task, item, root, "platform_instrument_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='platform' or @codeListValue='instrument']/../../gmd:keyword[not(gco:CharacterString='Not provided')]/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='platform' or @codeListValue='instrument']/../../gmd:keyword/gmx:Anchor");
+// G.evalProps(task, item, root, "instrument_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='instrument']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='instrument']/../../gmd:keyword/gmx:Anchor");
+ 
  G.evalProps(task, item, root, "project_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='project']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='project']/../../gmd:keyword/gmx:Anchor");
 
  G.evalProps(task, item, root, "distribution_links_s", "//gmd:distributionInfo//gmd:MD_DigitalTransferOptions//gmd:linkage/gmd:URL | //gmd:aggregationInfo//gmd:code[starts-with(gco:CharacterString/text(),'http')]/gco:CharacterString");
