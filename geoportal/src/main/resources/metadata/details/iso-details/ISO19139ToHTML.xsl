@@ -10,7 +10,7 @@ is done ISO19139usgin.xslt. Leave it here so nothing in Geoportal gets broken...
 -->
 
   <xsl:import href = "Imports\general.xslt" />
-  <xsl:import href = "Imports\ISO19139usgin.xslt" />
+  <xsl:import href = "Imports\iso19139usgin.xslt" />
   <xsl:import href = "Imports\XML.xslt" />
   <xsl:import href = "Imports\codelists.xslt" />
   <xsl:import href = "Imports\auxLanguages.xslt" />
