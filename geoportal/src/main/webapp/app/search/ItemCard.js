@@ -68,7 +68,7 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
       var self = this;
       topic.subscribe(appTopics.ItemOwnerChanged,function(params){
         if (self.item && self.item === params.item) {
-          self._renderOwnerAndDate(self.item);
+//          self._renderOwnerAndDate(self.item);
         }
       });
     },
@@ -79,6 +79,7 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
       var links = this._uniqueLinks(item);
       util.setNodeText(this.titleNode,item.title);
       //this._renderOwnerAndDate(item);
+      this._renderAuthorAndDate(item);
       this._renderSourceAndDate(item);
       //util.setNodeText(this.descriptionNode,item.description);
       this._renderDescription(item);
@@ -334,7 +335,26 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
       this._mitigateDropdownClip(dd,ddul);
     },
     
-    _renderOwnerAndDate: function(item) {
+    //modify ownerAndDateNode to show Author and creationDate
+    _renderAuthorAndDate: function(item) {
+        var author = item.cited_individual_s;
+        var date = item.apiso_CreationDate_dt;
+        var idx, text = "";
+        if (AppContext.appConfig.searchResults.showDate && typeof date === "string" && date.length > 0) {
+          idx = date.indexOf("T");
+          if (idx > 0) date =date.substring(0,idx);
+          text = date;
+        }
+        if (AppContext.appConfig.searchResults.showOwner && typeof author === "string" && owner.length > 0) {
+          if (text.length > 0) text += " ";
+          text += author;
+        }
+        if (text.length > 0) {
+          util.setNodeText(this.ownerAndDateNode,text);
+        }
+      },
+      
+/*    _renderOwnerAndDate: function(item) {
       var owner = item.sys_owner_s;
       var date = item.sys_modified_dt;
       var idx, text = "";
@@ -351,7 +371,7 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
         util.setNodeText(this.ownerAndDateNode,text);
       }
     },
-    
+*/    
     _renderThumbnail: function(item) {
       var show = AppContext.appConfig.searchResults.showThumbnails;
       var thumbnailNode = this.thumbnailNode;
