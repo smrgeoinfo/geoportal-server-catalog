@@ -6,8 +6,8 @@ define([],function(){var obj={
   search: {
     allowSettings: false,
     useSimpleQueryString: false,
-      DateMin: 1000,
-      DateMax: 2500
+      DateMin: 1900,
+      DateMax: 2080
   },
   
   searchMap: {
@@ -19,9 +19,9 @@ define([],function(){var obj={
   },
   
   searchResults: {
-    numPerPage: 10,
+    numPerPage: 15,
     showDate: true,
-    showOwner: false,
+    showOwner: true,
     showThumbnails: true,
     defaultSort: "title.sort:asc"
   },
