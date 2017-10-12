@@ -58,13 +58,12 @@ G.evaluators.iso = {
  /*  Use Apiso keyword to catch all, since keywording is not systematic
  G.evalProps(task, item, root, "theme_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='theme']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='theme']/../../gmd:keyword/gmx:Anchor");
  G.evalProps(task, item, root, "place_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='place']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='place']/../../gmd:keyword/gmx:Anchor | gmd:geographicIdentifier//gmd:code/gco:CharacterString");
-   pick up keywords with other type, or no type 
  G.evalProps(task, item, root, "other_keywords_s", " //gmd:MD_Keywords[not(child::*[local-name()='type'])]/gmd:keyword/gco:CharacterString | //gmd:MD_Keywords[not(child::*[local-name()='type'])]/gmd:keyword/gmx:Anchor");
 */ 
  
- /* combine index items for instrument and platform */
- G.evalProps(task, item, root, "platform_instrument_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='platform' or @codeListValue='instrument']/../../gmd:keyword[not(gco:CharacterString='Not provided')]/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='platform' or @codeListValue='instrument']/../../gmd:keyword/gmx:Anchor");
-// G.evalProps(task, item, root, "instrument_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='instrument']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='instrument']/../../gmd:keyword/gmx:Anchor");
+ /* index items for instrument and platform */
+ G.evalProps(task, item, root, "platform_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='platform']/../../gmd:keyword[not(gco:CharacterString='Not provided')]/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='platform']/../../gmd:keyword/gmx:Anchor");
+ G.evalProps(task, item, root, "instrument_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='instrument']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='instrument']/../../gmd:keyword/gmx:Anchor");
  
  G.evalProps(task, item, root, "project_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='project']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='project']/../../gmd:keyword/gmx:Anchor");
 

@@ -49,15 +49,22 @@
         data-dojo-props="
 		field:'cited_individual_s',
 		label:'Investigator/Author',
-		props:{size:200, order:{_term:'asc'}}">
+		props:{size:500, order:{_term:'asc'}}">
       </div>
  
 	  <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
-		field:'platform_instrument_keywords_s',
-		label:'Platforms/Instruments',
-		props:{size:200, order:{_term:'asc'}}}">
+		field:'platform_keywords_s',
+		label:'Platforms',
+		props:{size:200, order:{_term:'asc'}}">
       </div> 
+      
+      <div data-dojo-type="app/search/TermsAggregation"
+        data-dojo-props="
+		field:'instrument_keywords_s',
+		label:'Instruments',
+		props:{size:200, order:{_term:'asc'}}">
+      </div>
       
       <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
@@ -65,21 +72,16 @@
 		label:'Common tags',
 		props:{size:100}">
       </div>
-      
+
+         
 <!--  <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'place_keywords_s',
 		label:'Place keywords',
 		props:{size:50}">
       </div>       
-
-      <div data-dojo-type="app/search/TermsAggregation"
-        data-dojo-props="
-		field:'instrument_keywords_s',
-		label:'Instruments',
-		props:{size:50}">
-      </div> -->
-      
+-->
+   
  	  <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'project_keywords_s',
