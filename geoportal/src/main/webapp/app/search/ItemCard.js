@@ -88,8 +88,8 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
       this._renderOptionsDropdown(hit._id,item);
       this._renderAddToMap(item,links);
       this._renderServiceStatus(item);
-      this._renderWorkbenchLinksDropdown(item,links);
-       this._renderCinergiLinks(hit._id,item);
+      //this._renderWorkbenchLinksDropdown(item,links);
+      //this._renderCinergiLinks(hit._id,item);
     },
     
     _canEditMetadata: function(item,isOwner,isAdmin,isPublisher) {
@@ -367,6 +367,7 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
     
     _uniqueLinks: function(item) {
       var links = [];
+//makes links into an array
       if (typeof item.links_s === "string") {
         links = [item.links_s];
       } else if (lang.isArray(item.links_s)) {
@@ -476,7 +477,8 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
       }
       return null;
     },
-      _renderSourceAndDate: function(item) {
+
+    _renderSourceAndDate: function(item) {
 /*          var owner = item.src_source_name_s;
           var date = item.sys_modified_dt;*/
           var owner = item.cited_individual_s;
