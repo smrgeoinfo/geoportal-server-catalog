@@ -77,9 +77,11 @@ G.evaluators.iso = {
       
       
       /* links  */
+    G.evalProps(task,item,root,"links_s","//gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage/gmd:URL"); 
+
     //G.evalProps(task,item,root,"links_s","//gmd:CI_OnlineResource/gmd:linkage/gmd:URL");
     //G.evalProps(task,item,root,"links_s","//gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage/gmd:URL | //srv:connectPoint/gmd:CI_OnlineResource/gmd:linkage/gmd:URL"); 
-    G.evalProps(task,item,root,"links_s","//gmd:CI_OnlineResource/gmd:linkage/gmd:URL[not(ancestor::gmd:thesaurusName)]");    
+    //G.evalProps(task,item,root,"links_s","//gmd:CI_OnlineResource/gmd:linkage/gmd:URL[not(ancestor::gmd:thesaurusName)]");    
 
     /* identification */
     G.evalProp(task,item,root,"apiso_Identifier_s","gmd:fileIdentifier/gco:CharacterString");
