@@ -477,18 +477,37 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
       return null;
     },
       _renderSourceAndDate: function(item) {
-          var owner = item.src_source_name_s;
-          var date = item.sys_modified_dt;
+/*          var owner = item.src_source_name_s;
+          var date = item.sys_modified_dt;*/
+          var owner = item.cited_individual_s;
+          var date = item.apiso_CreationDate_dt;
           var idx, text = "";
 
-          if (typeof owner === "string" && owner.length > 0) {
-              if (text.length > 0) text += " ";
-              text = "Source: " + owner;
+/*SMR 2017-10-12 modify to display the authors and creation date
+ * Authors (cited_individual_s apparently might be string or array
+ * have to handle both
+ */                 
+         if (Array.isArray(owner)){
+          owner.forEach(function(element) {
+            if (typeof element === "string") {
+            if (text.length == 0  ) {
+                  text = "Authors: " + element;
+              } else {
+                  text = text + ", " + element;
+              };
+          }})
           }
+          else {
+        	  if (typeof owner === "string" && owner.length > 0) {
+                  if (text.length > 0) text += " ";
+                  text = "Author: " + owner;
+              }
+          }
+                 
           if (AppContext.appConfig.searchResults.showDate && typeof date === "string" && date.length > 0) {
               idx = date.indexOf("T");
               if (idx > 0) date =date.substring(0,idx);
-              text += " Last Modified: " + date;
+              text += " Created: " + date;
           }          if (text.length > 0) {
               util.setNodeText(this.ownerAndDateNode,text);
           }
