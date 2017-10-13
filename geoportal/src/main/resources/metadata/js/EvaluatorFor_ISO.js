@@ -67,9 +67,9 @@ G.evaluators.iso = {
  
  G.evalProps(task, item, root, "project_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='project']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='project']/../../gmd:keyword/gmx:Anchor");
  G.evalProps(task, item, root, "dataCentre_s", "//gmd:MD_KeywordTypeCode[@codeListValue='dataCentre']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='dataCentre']/../../gmd:keyword/gmx:Anchor");
- G.evalProps(task, item, root, "ieda_data_type_keywords_s", "//gmd:MD_KeywordTypeCode[.='IEDA data type categories']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[.='IEDA data type categories']/../../gmd:keyword/gmx:Anchor");
- G.evalProps(task, item, root, "feature_of_interest_keywords_s", "//gmd:MD_KeywordTypeCode[@.='IEDA feature of interest']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[.='IEDA feature of interest']/../../gmd:keyword/gmx:Anchor");
- G.evalProps(task, item, root, "ieda_topic_keywords_s", "//gmd:MD_KeywordTypeCode[@.='IEDA topic']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[.='IEDA topic']/../../gmd:keyword/gmx:Anchor");
+ G.evalProps(task, item, root, "ieda_data_type_keywords_s", "//gmd:MD_KeywordTypeCode[text()='IEDA data type categories']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[text()='IEDA data type categories']/../../gmd:keyword/gmx:Anchor");
+ G.evalProps(task, item, root, "feature_of_interest_keywords_s", "//gmd:MD_KeywordTypeCode[text()='IEDA feature of interest']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[text()='IEDA feature of interest']/../../gmd:keyword/gmx:Anchor");
+ G.evalProps(task, item, root, "ieda_topic_keywords_s", "//gmd:MD_KeywordTypeCode[text()='IEDA topic']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[text()='IEDA topic']/../../gmd:keyword/gmx:Anchor");
 
  G.evalProps(task, item, root, "distribution_links_s", "//gmd:distributionInfo//gmd:MD_DigitalTransferOptions//gmd:linkage/gmd:URL | //gmd:aggregationInfo//gmd:code[starts-with(gco:CharacterString/text(),'http')]/gco:CharacterString");
 
