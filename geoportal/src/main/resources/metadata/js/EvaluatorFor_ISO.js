@@ -61,14 +61,14 @@ G.evaluators.iso = {
  
 // G.evalProps(task, item, root, "place_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='place']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='place']/../../gmd:keyword/gmx:Anchor | gmd:geographicIdentifier//gmd:code/gco:CharacterString");
 
- G.evalProps(task, item, root, "place_keywords_s", "//gmd:MD_KeywordTypeCode[contains(@codeListValue='lace')]/../../gmd:keyword/*/text() | gmd:geographicIdentifier//gmd:code/gco:CharacterString");
+ G.evalProps(task, item, root, "place_keywords_s", "//gmd:MD_KeywordTypeCode[contains(@codeListValue,'lace')]/../../gmd:keyword/*/text() | gmd:geographicIdentifier//gmd:code/gco:CharacterString");
 
  /* index items for instrument and platform */
  G.evalProps(task, item, root, "platform_keywords_s", "//gmd:MD_KeywordTypeCode[contains(@codeListValue,'latform')]/../../gmd:keyword[not(contains(gco:CharacterString,'ot provided'))]/*/text()");
  G.evalProps(task, item, root, "instrument_keywords_s", "//gmd:MD_KeywordTypeCode[contains(@codeListValue,'nstrument')]/../../gmd:keyword/*/text()");
  
  G.evalProps(task, item, root, "project_keywords_s", "//gmd:MD_KeywordTypeCode[contains(@codeListValue,'roject')]/../../gmd:keyword/*/text()");
- G.evalProps(task, item, root, "dataCentre_s", "//gmd:MD_KeywordTypeCode[contains(@codeListValue,'ata') and contains (@codeListValue,'ent')]/../../gmd:keyword/*/text()");
+ G.evalProps(task, item, root, "dataCentre_s", "//gmd:MD_KeywordTypeCode[contains(@codeListValue,'ata') and contains(@codeListValue,'ent')]/../../gmd:keyword/*/text()");
  G.evalProps(task, item, root, "ieda_data_type_keywords_s", "//gmd:MD_KeywordTypeCode[(text()='IEDA data type categories')]/../../gmd:keyword/*/text()");
  G.evalProps(task, item, root, "feature_of_interest_keywords_s", "//gmd:MD_KeywordTypeCode[contains(text(),'eature') and contains(text(),'nterest')]/../../gmd:keyword/*/text()");
  G.evalProps(task, item, root, "ieda_topic_keywords_s", "//gmd:MD_KeywordTypeCode[text()='IEDA topic']/../../gmd:keyword/*/text()");
@@ -160,7 +160,7 @@ G.evaluators.iso = {
 
     G.evalProps(task,item,root,"apiso_ServiceType_s","//gmd:identificationInfo/srv:SV_ServiceIdentification/srv:serviceType/gco:LocalName");
     G.evalProps(task,item,root,"apiso_ServiceTypeVersion_s","//gmd:identificationInfo/srv:SV_ServiceIdentification/srv:serviceTypeVersion/gco:CharacterString");
-    G.evalProps(task,item,root,"apiso_Operation_s","//gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:operationName/gco:CharacterStrin");
+    G.evalProps(task,item,root,"apiso_Operation_s","//gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:operationName/gco:CharacterString");
     G.evalProps(task,item,root,"apiso_OperatesOn_s","//gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn/@uuidref | //gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn/@xlink:href");
     G.evalProps(task,item,root,"apiso_OperatesOnIdentifier_s","//gmd:identificationInfo/srv:SV_ServiceIdentification/srv:coupledResource/srv:SV_CoupledResource/srv:identifier");
     G.evalProps(task,item,root,"apiso_OperatesOnName_s","//gmd:identificationInfo/srv:SV_ServiceIdentification/srv:coupledResource/srv:SV_CoupledResource/srv:operationName");
