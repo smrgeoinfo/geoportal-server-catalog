@@ -37,10 +37,11 @@
           fieldsOperator: 'must'">
       </div>
 
-<!--  make dataCentre_s when keyword type dataCentre gets populated -->
+<!--  make dataCentre_s when keyword type dataCentre gets populated
+was src_source_name_s -->
       <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
-        field:'src_source_name_s',
+        field:'dataCentre_s',
         label:'Partner system',
         props:{size:40, order:{_term:'asc'}}">
       </div>
@@ -96,18 +97,18 @@
       </div>
 
          
-<!--  <div data-dojo-type="app/search/TermsAggregation"
+  <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'place_keywords_s',
 		label:'Place keywords',
-		props:{size:50}">
+		props:{size:1000, order:{_term:'asc'}}">
       </div>       
--->
+
    
  	  <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'project_keywords_s',
-		label:'Projects and programs',
+		label:'Projects, cruises, programs',
 		props:{size:50, order:{_term:'asc'}}">
       </div>
 

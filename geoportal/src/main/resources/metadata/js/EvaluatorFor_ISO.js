@@ -49,27 +49,36 @@ G.evaluators.iso = {
     /* IEDA customizations */
 //these are the points of contacts, for metadata, the resource, or distribution; no distinction made
  G.evalProps(task, item, root, "contact_organization_s", "//gmd:CI_RoleCode[contains(text(),'ontact') or contains(@codeListValue, 'ontact')]/../../gmd:organisationName[not(contains(gco:CharacterString,'issing'))]/gco:CharacterString");
- G.evalProps(task, item, root, "contact_individual_s", "//gmd:identificationInfo//gmd:CI_ResponsibleParty[gmd:role/gmd:CI_RoleCode/@codeListValue='pointOfContact']/gmd:individualName[not(gco:CharacterString='missing')]/gco:CharacterString | //gmd:pointOfContact/gmd:CI_ResponsibleParty[gmd:role/gmd:CI_RoleCode/@codeListValue='pointOfContact']/gmd:individualName[not(gco:CharacterString='missing')]/gco:CharacterString | //gmd:distributorContact/gmd:CI_ResponsibleParty[gmd:role/gmd:CI_RoleCode/@codeListValue='pointOfContact']/gmd:individualName[not(gco:CharacterString='missing')]/gco:CharacterString");
+ G.evalProps(task, item, root, "contact_individual_s", "//gmd:identificationInfo//gmd:CI_ResponsibleParty[gmd:role/gmd:CI_RoleCode/@codeListValue='pointOfContact']/gmd:individualName[not(contains(gco:CharacterString,'issing'))]/gco:CharacterString | //gmd:pointOfContact/gmd:CI_ResponsibleParty[gmd:role/gmd:CI_RoleCode/@codeListValue='pointOfContact']/gmd:individualName[not(contains(gco:CharacterString,'issing'))]/gco:CharacterString | //gmd:distributorContact/gmd:CI_ResponsibleParty[gmd:role/gmd:CI_RoleCode/@codeListValue='pointOfContact']/gmd:individualName[not(contains(gco:CharacterString,'issing'))]/gco:CharacterString");
 //these are the agents cited in the identification section, citedResponsibleParty or pointOfContact
- G.evalProps(task, item, root, "cited_individual_s", "//gmd:CI_RoleCode[contains(text(),'inciple') or contains(@codeListValue, 'uthor') or contains(@codeListValue, 'riginator') or contains(@codeListValue, 'inciple')]/../../gmd:individualName[not(contains(gco:CharacterString,'issing'))]/gco:CharacterString");
- G.evalProps(task, item, root, "cited_organization_s", "//gmd:CI_RoleCode[contains(text(),'inciple') or contains(@codeListValue, 'uthor') or contains(@codeListValue, 'riginator') or contains(@codeListValue, 'inciple')]/../../gmd:organisationName[not(contains(gco:CharacterString,'issing'))]/gco:CharacterString");
- G.evalProps(task, item, root, "metadata_org_iconlink_s", "gmd:contact/gmd:CI_ResponsibleParty//CI_OnlineResource/linkage");
+ G.evalProps(task, item, root, "cited_individual_s", "//gmd:CI_RoleCode[contains(text(),'rincip') or contains(@codeListValue, 'uthor') or contains(@codeListValue, 'riginator') or contains(@codeListValue, 'rincip')]/../../gmd:individualName[not(contains(gco:CharacterString,'issing'))]/gco:CharacterString");
+ G.evalProps(task, item, root, "cited_organization_s", "//gmd:CI_RoleCode[contains(text(),'rincip') or contains(@codeListValue, 'uthor') or contains(@codeListValue, 'riginator') or contains(@codeListValue, 'rincip')]/../../gmd:organisationName[not(contains(gco:CharacterString,'issing'))]/gco:CharacterString");
+ G.evalProps(task, item, root, "metadata_org_iconlink_s", "gmd:contact/gmd:CI_ResponsibleParty//gmd:CI_OnlineResource/gmd:linkage/gmd:URL");
 
  /*  Use Apiso keyword to catch all, since keywording is not systematic
  G.evalProps(task, item, root, "theme_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='theme']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='theme']/../../gmd:keyword/gmx:Anchor");
- G.evalProps(task, item, root, "place_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='place']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='place']/../../gmd:keyword/gmx:Anchor | gmd:geographicIdentifier//gmd:code/gco:CharacterString");
- G.evalProps(task, item, root, "other_keywords_s", " //gmd:MD_Keywords[not(child::*[local-name()='type'])]/gmd:keyword/gco:CharacterString | //gmd:MD_Keywords[not(child::*[local-name()='type'])]/gmd:keyword/gmx:Anchor");
+*/
+ 
+// G.evalProps(task, item, root, "place_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='place']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='place']/../../gmd:keyword/gmx:Anchor | gmd:geographicIdentifier//gmd:code/gco:CharacterString");
+
+ G.evalProps(task, item, root, "place_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='place']/../../gmd:keyword/*/text() | gmd:geographicIdentifier//gmd:code/gco:CharacterString");
+
+ /*
+  * G.evalProps(task, item, root, "other_keywords_s", " //gmd:MD_Keywords[not(child::*[local-name()='type'])]/gmd:keyword/gco:CharacterString | //gmd:MD_Keywords[not(child::*[local-name()='type'])]/gmd:keyword/gmx:Anchor");
 */ 
  
  /* index items for instrument and platform */
- G.evalProps(task, item, root, "platform_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='platform']/../../gmd:keyword[not(gco:CharacterString='Not provided')]/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='platform']/../../gmd:keyword/gmx:Anchor");
- G.evalProps(task, item, root, "instrument_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='instrument']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='instrument']/../../gmd:keyword/gmx:Anchor");
+ G.evalProps(task, item, root, "platform_keywords_s", "//gmd:MD_KeywordTypeCode[contains(@codeListValue,'latform')]/../../gmd:keyword[not(contains(gco:CharacterString,'ot provided'))]/gco:CharacterString | //gmd:MD_KeywordTypeCode[contains(@codeListValue,'latform')]/../../gmd:keyword/gmx:Anchor");
+ G.evalProps(task, item, root, "instrument_keywords_s", "//gmd:MD_KeywordTypeCode[contains(@codeListValue,'nstrument')]/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[contains(@codeListValue,'nstrument')]/../../gmd:keyword/gmx:Anchor");
  
- G.evalProps(task, item, root, "project_keywords_s", "//gmd:MD_KeywordTypeCode[@codeListValue='project']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='project']/../../gmd:keyword/gmx:Anchor");
- G.evalProps(task, item, root, "dataCentre_s", "//gmd:MD_KeywordTypeCode[@codeListValue='dataCentre']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='dataCentre']/../../gmd:keyword/gmx:Anchor");
- G.evalProps(task, item, root, "ieda_data_type_keywords_s", "//gmd:MD_KeywordTypeCode[text()='IEDA data type categories']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[text()='IEDA data type categories']/../../gmd:keyword/gmx:Anchor");
- G.evalProps(task, item, root, "feature_of_interest_keywords_s", "//gmd:MD_KeywordTypeCode[text()='IEDA feature of interest']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[text()='IEDA feature of interest']/../../gmd:keyword/gmx:Anchor");
+ G.evalProps(task, item, root, "project_keywords_s", "//gmd:MD_KeywordTypeCode[contains(@codeListValue,'roject')]/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[@codeListValue='project']/../../gmd:keyword/gmx:Anchor");
+ G.evalProps(task, item, root, "dataCentre_s", "//gmd:MD_KeywordTypeCode[contains(@codeListValue,'ata') and contains (@codeListValue,'ent')]/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[contains(@codeListValue,'ata') and contains (@codeListValue,'ent')]/../../gmd:keyword/gmx:Anchor");
+ G.evalProps(task, item, root, "ieda_data_type_keywords_s", "//gmd:MD_KeywordTypeCode[contains(text(),'ata') and contains(text(),'ype')]/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[contains(text(),'ata') and contains(text(),'ype')]/../../gmd:keyword/gmx:Anchor");
+ G.evalProps(task, item, root, "feature_of_interest_keywords_s", "//gmd:MD_KeywordTypeCode[contains(text(),'eature') and contains(text(),'nterest')]/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[contains(text(),'eature') and contains(text(),'nterest')]/../../gmd:keyword/gmx:Anchor");
  G.evalProps(task, item, root, "ieda_topic_keywords_s", "//gmd:MD_KeywordTypeCode[text()='IEDA topic']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[text()='IEDA topic']/../../gmd:keyword/gmx:Anchor");
+/* G.evalProps(task, item, root, "tags_s", "//gmd:MD_Keywords[not(gmd:type)]/gmd:keyword/gco:CharacterString | //gmd:MD_Keywords[not(gmd:type)]/gmd:keyword/gmx:Anchor  | //gmd:MD_KeywordTypeCode[text()='theme' or text()='']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[text()='theme' or text()='']/../../gmd:keyword/gmx:Anchor");
+*/ 
+ G.evalProps(task, item, root, "tags_s", "//gmd:MD_Keywords[not(gmd:type)]/gmd:keyword/*/text() |  //gmd:MD_KeywordTypeCode[text()='theme' or text()='']/../../gmd:keyword/*/text()");
 
  G.evalProps(task, item, root, "distribution_links_s", "//gmd:distributionInfo//gmd:MD_DigitalTransferOptions//gmd:linkage/gmd:URL | //gmd:aggregationInfo//gmd:code[starts-with(gco:CharacterString/text(),'http')]/gco:CharacterString");
 
