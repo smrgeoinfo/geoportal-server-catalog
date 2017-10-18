@@ -483,6 +483,7 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
           var date = item.sys_modified_dt;*/
           var owner = item.cited_individual_s;
           var date = "";
+          var dataCenter=item.dataCentre_s;
           var idx, text = "";
 
 /*SMR 2017-10-12 modify to display the authors and creation date
@@ -514,18 +515,22 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
         	 date = item.apiso_CreationDate_dt;
         	 idx = date.indexOf("T");
              if (idx > 0) date =date.substring(0,idx);
-             date = " Created: " + date;
+             date = "    Created: " + date;
          }
          else if (typeof item.apiso_PublicationDate_dt === "string" && item.apiso_PublicationDate_dt.length > 0 ){
         	 date = item.apiso_PublicationDate_dt;
         	 idx = date.indexOf("T");
              if (idx > 0) date =date.substring(0,idx);
-             date = " Published: " + date;
+             date = "    Published: " + date;
          }
                  
           if (AppContext.appConfig.searchResults.showDate && typeof date === "string" && date.length > 0) {
               text += date;
           }
+/*
+ * add partner system name SMR 2017-10-17
+ */          
+          text += "   IEDA Partner: " + dataCenter;
           
           if (text.length > 0) {
               util.setNodeText(this.ownerAndDateNode,text);

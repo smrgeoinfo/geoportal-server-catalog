@@ -33,7 +33,7 @@
           field:'apiso_PublicationDate_dt',
           interval:'year',
           open:false,
-          label:'Publication Date',
+          label:'Publication or release date',
           fieldsOperator: 'must'">
       </div>
 
@@ -100,7 +100,7 @@ was src_source_name_s -->
         data-dojo-props="
 		field:'tags_s',
 		label:'Tags',
-		props:{size:100},
+		props:{size:200},
 		tooltip:'tagging from data provider'">
       </div>
 
@@ -110,7 +110,7 @@ was src_source_name_s -->
 		field:'place_keywords_s',
 		label:'Place keywords',
 		props:{size:1000, order:{_term:'asc'}},
-		tooltip:'Location of study area'">
+		tooltip:'as tagged by data provider'">
       </div>       
 
    
@@ -118,8 +118,8 @@ was src_source_name_s -->
         data-dojo-props="
 		field:'project_keywords_s',
 		label:'Projects, cruises, programs',
-		props:{size:50, order:{_term:'asc'}},
-		tooltip:''">
+		props:{size:1000, order:{_term:'asc'}},
+		tooltip:'as tagged by data provider'">
       </div>
 
       <!-- end example hierarchies -->
