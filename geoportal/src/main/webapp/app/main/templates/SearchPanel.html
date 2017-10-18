@@ -6,14 +6,14 @@
         <div style="overflow-y: auto;max-height:  90%;">
 <div id="infoSearchText">Search facets</div>
 
-<!--       <div  data-dojo-type="app/search/SpatialFilter"
+       <div  data-dojo-type="app/search/SpatialFilter"
         data-dojo-props="
           field: 'envelope_geo',
           pointField: 'envelope_cen_pt',
           allowAggregation: true,
           open: true,
           label:'${i18n.search.criteria.map}'">
-      </div> -->
+      </div> 
 
 
       <div data-dojo-type="app/search/DateFilter"
@@ -53,29 +53,29 @@ was src_source_name_s -->
 		field:'cited_individual_s',
 		label:'Investigator/Author',
 		props:{size:2000, order:{_term:'asc'}},
-		tooltip:''">
+		tooltip:'Cited originator of content'">
       </div>
       
       <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'ieda_data_type_keywords_s',
-		label:'Data Type',
+		label:'IEDA Data Type Categories',
 		props:{size:100, order:{_term:'asc'}},
-		tooltip:'Kind of data'">
+		tooltip:'High level data types from IEDA'">
       </div>
       
       <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'feature_of_interest_keywords_s',
-		label:'Feature of Interest',
+		label:'IEDA Feature of Interest',
 		props:{size:100, order:{_term:'asc'}},
-		tooltip:'kind of thing observed'">
+		tooltip:'Geologic features, feature types and realms'">
       </div>
       
       <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'ieda_topic_keywords_s',
-		label:'Topic',
+		label:'IEDA Topic',
 		props:{size:100, order:{_term:'asc'}},
 		tooltip:'Science subject area'">
       </div>
@@ -95,15 +95,6 @@ was src_source_name_s -->
 		props:{size:1000, order:{_term:'asc'}},
 		tooltip:'instruments or sensors used'">
       </div>
-      
-      <div data-dojo-type="app/search/TermsAggregation"
-        data-dojo-props="
-		field:'tags_s',
-		label:'Tags',
-		props:{size:200},
-		tooltip:'tagging from data provider'">
-      </div>
-
          
   <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
@@ -113,14 +104,23 @@ was src_source_name_s -->
 		tooltip:'as tagged by data provider'">
       </div>       
 
-   
- 	  <div data-dojo-type="app/search/TermsAggregation"
+	  <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'project_keywords_s',
 		label:'Projects, cruises, programs',
 		props:{size:1000, order:{_term:'asc'}},
 		tooltip:'as tagged by data provider'">
       </div>
+      
+            
+      <div data-dojo-type="app/search/TermsAggregation"
+        data-dojo-props="
+		field:'tags_s',
+		label:'Other search terms',
+		props:{size:200},
+		tooltip:'Data type, devices, features, tags from data providers'">
+      </div>
+      
 
       <!-- end example hierarchies -->
         </div>
