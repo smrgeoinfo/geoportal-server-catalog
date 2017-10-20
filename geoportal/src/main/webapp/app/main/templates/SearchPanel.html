@@ -11,7 +11,7 @@
           field: 'envelope_geo',
           pointField: 'envelope_cen_pt',
           allowAggregation: true,
-          open: true,
+          open: false,
           label:'${i18n.search.criteria.map}'">
       </div> 
 
@@ -23,7 +23,7 @@
           toField:'timeperiod_nst.end_dt',
           interval:'year',
           open:false,
-          label:'Acquisition Date Interval',
+          label:'Acquisition date interval',
           fieldsOperator: 'should'">
       </div>
 
@@ -77,7 +77,7 @@ was src_source_name_s -->
 		field:'ieda_topic_keywords_s',
 		label:'IEDA Topic',
 		props:{size:100, order:{_term:'asc'}},
-		tooltip:'Science subject area'">
+		tooltip:'IEDA Science subject areas'">
       </div>
  
 	  <div data-dojo-type="app/search/TermsAggregation"
@@ -85,7 +85,7 @@ was src_source_name_s -->
 		field:'platform_keywords_s',
 		label:'Platforms',
 		props:{size:1000, order:{_term:'asc'}},
-		tooltip:'observation platform or facility'">
+		tooltip:'Observation platform or facility'">
       </div> 
       
       <div data-dojo-type="app/search/TermsAggregation"
@@ -93,7 +93,7 @@ was src_source_name_s -->
 		field:'instrument_keywords_s',
 		label:'Instruments',
 		props:{size:1000, order:{_term:'asc'}},
-		tooltip:'instruments or sensors used'">
+		tooltip:'Instruments or sensors used'">
       </div>
          
   <div data-dojo-type="app/search/TermsAggregation"
@@ -101,7 +101,7 @@ was src_source_name_s -->
 		field:'place_keywords_s',
 		label:'Place keywords',
 		props:{size:1000, order:{_term:'asc'}},
-		tooltip:'as tagged by data provider'">
+		tooltip:'As tagged by data provider'">
       </div>       
 
 	  <div data-dojo-type="app/search/TermsAggregation"
@@ -109,7 +109,7 @@ was src_source_name_s -->
 		field:'project_keywords_s',
 		label:'Projects, cruises, programs',
 		props:{size:1000, order:{_term:'asc'}},
-		tooltip:'as tagged by data provider'">
+		tooltip:'As tagged by data provider'">
       </div>
       
             
