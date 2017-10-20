@@ -70,7 +70,7 @@ G.evaluators.iso = {
  G.evalProps(task, item, root, "project_keywords_s", "//gmd:MD_KeywordTypeCode[contains(@codeListValue,'roject')]/../../gmd:keyword/*/text()");
  G.evalProps(task, item, root, "dataCentre_s", "//gmd:MD_KeywordTypeCode[contains(@codeListValue,'ata') and contains(@codeListValue,'ent')]/../../gmd:keyword/*/text()");
  G.evalProps(task, item, root, "ieda_data_type_keywords_s", "//gmd:MD_KeywordTypeCode[(text()='IEDA data type categories')]/../../gmd:keyword/*/text()");
- G.evalProps(task, item, root, "feature_of_interest_keywords_s", "//gmd:MD_KeywordTypeCode[contains(text(),'eature') and contains(text(),'nterest')]/../../gmd:keyword/*/text()");
+ G.evalProps(task, item, root, "feature_of_interest_keywords_s", "//gmd:MD_KeywordTypeCode[contains(text(),'IEDA feature of interest')]/../../gmd:keyword/*/text()");
  G.evalProps(task, item, root, "ieda_topic_keywords_s", "//gmd:MD_KeywordTypeCode[text()='IEDA topic']/../../gmd:keyword/*/text()");
 /* G.evalProps(task, item, root, "tags_s", "//gmd:MD_Keywords[not(gmd:type)]/gmd:keyword/gco:CharacterString | //gmd:MD_Keywords[not(gmd:type)]/gmd:keyword/gmx:Anchor  | //gmd:MD_KeywordTypeCode[text()='theme' or text()='']/../../gmd:keyword/gco:CharacterString | //gmd:MD_KeywordTypeCode[text()='theme' or text()='']/../../gmd:keyword/gmx:Anchor");
 */ 
