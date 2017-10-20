@@ -511,17 +511,17 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
  * report either the creation date or publication date
  * 
  */
-         if (typeof item.apiso_CreationDate_dt === "string" && item.apiso_CreationDate_dt.length > 0){
-        	 date = item.apiso_CreationDate_dt;
-        	 idx = date.indexOf("T");
-             if (idx > 0) date =date.substring(0,idx);
-             date = "    Created: " + date;
-         }
-         else if (typeof item.apiso_PublicationDate_dt === "string" && item.apiso_PublicationDate_dt.length > 0 ){
+         if (typeof item.apiso_PublicationDate_dt === "string" && item.apiso_PublicationDate_dt.length > 0){
         	 date = item.apiso_PublicationDate_dt;
         	 idx = date.indexOf("T");
              if (idx > 0) date =date.substring(0,idx);
-             date = "    Published: " + date;
+             date = ";    Data release: " + date;
+         }
+         else if (typeof item.apiso_CreatedDate_dt === "string" && item.apiso_CreatedDate_dt.length > 0 ){
+        	 date = item.apiso_CreatedDate_dt;
+        	 idx = date.indexOf("T");
+             if (idx > 0) date =date.substring(0,idx);
+             date = ";    Created: " + date;
          }
                  
           if (AppContext.appConfig.searchResults.showDate && typeof date === "string" && date.length > 0) {
@@ -530,7 +530,7 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
 /*
  * add partner system name SMR 2017-10-17
  */          
-          text += "   IEDA Partner: " + dataCenter;
+          text += ";   IEDA Partner: " + dataCenter;
           
           if (text.length > 0) {
               util.setNodeText(this.ownerAndDateNode,text);
