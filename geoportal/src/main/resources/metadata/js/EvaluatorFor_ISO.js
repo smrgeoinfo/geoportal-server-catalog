@@ -41,7 +41,7 @@ G.evaluators.iso = {
     G.evalProp(task,item,iden,"title","gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString | gmd:citation/gmd:CI_Citation/gmd:alternateTitle/gco:CharacterString");
     
     /* get abstract and other citation details */
-    G.evalProp(task,item,iden,"description","gmd:abstract/gco:CharacterString | gmd:citation/gmd:CI_Citation/gmd:otherCitationDetails/gco:CharacterString");
+    G.evalProp(task,item,iden,"description","gmd:abstract/gco:CharacterString | gmd:citation/gmd:CI_Citation/gmd:otherCitationDetails[not(contains(gco:CharacterString,'elated publications'))]/gco:CharacterString");
     /* don't include the gmd topicCategory, they show up on separate facet gmd:MD_TopicCategoryCode */
     G.evalProps(task,item,root,"keywords_s","//gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:keyword/*/text()");
     G.evalProp(task,item,iden,"thumbnail_s","gmd:graphicOverview/gmd:MD_BrowseGraphic/gmd:fileName/gco:CharacterString");

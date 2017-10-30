@@ -591,7 +591,7 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
 
       },
       _renderDescription: function (item) {
-      var desc = item.description;
+      var desc = item.apiso_Abstract_txt;
       if (desc && desc.indexOf("REQUIRED FIELD") > -1 ){
         desc = "";
       }
