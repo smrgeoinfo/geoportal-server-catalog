@@ -508,7 +508,7 @@ function(declare, lang, array, string, topic, xhr, appTopics, domClass, domConst
           }
          
 /*
- * report either the creation date or publication date
+ * report either the publication(available, release) date or reported creation date
  * 
  */
          if (typeof item.apiso_PublicationDate_dt === "string" && item.apiso_PublicationDate_dt.length > 0){
