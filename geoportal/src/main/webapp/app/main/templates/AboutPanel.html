@@ -1,44 +1,22 @@
 
 <div class="aGrid">
   <div class="aBox aaa">&nbsp;</div>
-  <div class="aBox aa"></image><h2>About this portal</h2> <p>The Interdisciplinary Earth Data Alliance (IEDA) Data Portal </p>
-
+  <div class="aBox aa">
+  <h2>About this portal</h2> 
+  <h2>The Interdisciplinary Earth Data Alliance (IEDA) Data Portal </h2>
+<p>This application searches a catalog of resources under the stewardship of partners in the Interdisciplinary Earth Data Alliance (IEDA). Catalog records are harvested from the EarthChem Library, US Antarctic Program Data Center, Marine Geoscience Data Library and Academic Seismic Portal partners of the Interdisciplinary Earth Data Alliance. Funding is provided by the National Science Foundation </p>
+<p>
+The catalog search is implemented using the ESRI open-source Geoportal Software, v. 2.5, customized in an <a href=https://github.com/iedadata/geoportal-server-catalog>IEDA fork</a> of the ESRI gitHub repository. Metadata are harvested into the catalog as ISO 19139 xml files from web accessible folders, and all metadata are available as ISO 19139 XML or JSON via links with each search result. </p>
+<p>
+The catalog can be searched via API using the OGC Catalog Service for the Web (CSW), version 3.0.0 or OpenSearch.  Capabilities are described in the <a href=http://catalog-dev.iedadata.org:8080/geoportal/csw?service=CSW&request=GetCapabilities> CSW getCapabilities document</a> and the <a href=http://catalog-dev.iedadata.org:8080/geoportal/opensearch/description>OpenSearch description </a> 
+ </p>
+ <p>
+The APIs return metadata in CSW records or Atom XML format, both of which contain basic Dublin Core metadata elements.
+</p>
   </div>
   <div class="aBox bb">
-    <image src="images/IEDANoWords.png" height=150 width=150/>
+    <image src="images/IEDANoWords.png" style="height=150; width=150"/>
   </div>
 
-<!--   <div class="aBox cc">    Just copy and paste the following into your page: <br/>
-    <div style='background-color:#CDCDCD; font-family: "Courier"'>
-      &#x3C;!-- cinergi search widget --&#x3E; <br/>
-      &#x3C;div style=&#x22;width: 250px; height: 150px; background-color: #FFFFFF&#x22;&#x3E;
-
-      <br/>&#x3C;img src=&#x22;http://cinergi.sdsc.edu/assets/img/logo_ww.png&#x22; width=50 height=50&#x3E;
-      <br/>&#x3C;img src=&#x22;http://cinergi.sdsc.edu/contribute/recordCount.ashx&#x22;/&#x3E;
-      <br/>&#x3C;form  onsubmit=&#x22;window.location.href=&#x27;http://cinergi.sdsc.edu/geoportal/?q=&#x27;+document.getElementById(&#x27;cinergiSearchText&#x27;).value; return false;&#x22;&#x3E;
-      <br/>&#x3C;div id=&#x22;cinergi-search-filter&#x22;&#x3E;
-      <br/>&#x3C;input type=&#x22;text&#x22; style=&#x22;margin-top:2px; margin-bottom:0px; width:80%; font-size:12&#x22; id=&#x22;cinergiSearchText&#x22; type=&#x22;search&#x22; placeholder=&#x22;SEARCH CINERGI&#x22; &#x3E;
-      <br/>&#x3C;img src=&#x22;http://cinergi.sdsc.edu/assets/img/icons/black_search.png&#x22; style=&#x22;right:10px; top:3px; cursor: pointer&#x22;  onClick=&#x22;window.location.href=&#x27;http://cinergi.sdsc.edu/geoportal/?q=&#x27;+document.getElementById(&#x27;cinergiSearchText&#x27;).value; return false;&#x22;&#x3E;
-      <br/>&#x3C;/div&#x3E;
-      <br/>&#x3C;/form&#x3E;
-      <br/>&#x3C;/div&#x3E;
-    </div> </div>
-  <div class="aBox dd">
-    <div >Add the CINERGI search widget to your website!. </div>
-    cinergi search widget
-    <div style="width: 250px; height: 150px; background-color: #FFFFFF">
-
-
-      <img src="http://cinergi.sdsc.edu/contribute/recordCount.ashx"/>
-      <form  onsubmit="window.location.href='http://cinergi.sdsc.edu/geoportal/?q='+document.getElementById('cinergiSearchText').value; return false;">
-        <div id="cinergi-search-filter">
-          <input type="text" style="margin-top:2px; margin-bottom:0px; width:80%; font-size:12" id="cinergiSearchText" type="search" placeholder="SEARCH CINERGI" >
-          <img src="http://cinergi.sdsc.edu/assets/img/icons/black_search.png" style="right:10px; top:3px; cursor: pointer"  onClick="window.location.href='http://cinergi.sdsc.edu/geoportal/?q='+document.getElementById('cinergiSearchText').value; return false;">
-        </div>
-      </form>
-    </div>
-
-
-  </div> -->
 </div>
 
