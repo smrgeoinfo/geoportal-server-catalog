@@ -6,16 +6,16 @@
         <div style="overflow-y: auto;max-height:  90%;">
 <div id="infoSearchText">Search facets</div>
 
-       <div  data-dojo-type="app/search/SpatialFilter"
+<!-- Authors -->
+      <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
-          field: 'envelope_geo',
-          pointField: 'envelope_cen_pt',
-          allowAggregation: true,
-          open: false,
-          label:'${i18n.search.criteria.map}'">
-      </div> 
-
-<!-- change from date filter to temporal filter SMR 2017-11-15 
+		field:'cited_individual_s',
+		label:'Investigator/Author',
+		props:{size:2000, order:{_term:'asc'}},
+		tooltip:'Cited originator of content'">
+      </div>
+ 
+<!-- Acquisition date. Change from date filter to temporal filter SMR 2017-11-15 
  remove fieldsOperator:'should'-->
       <div data-dojo-type="app/search/TemporalFilter"
            data-dojo-props="
@@ -27,7 +27,7 @@
           label:'Acquisition date interval'">
       </div>
 
-
+<!-- Publication date -->
      <div data-dojo-type="app/search/TemporalFilter"
            data-dojo-props="
           field:'apiso_PublicationDate_dt',
@@ -36,42 +36,8 @@
           label:'Publication or release date',
           fieldsOperator: 'must'">
       </div>
-
-<!--  make dataCentre_s when keyword type dataCentre gets populated
-was src_source_name_s -->
-      <div data-dojo-type="app/search/TermsAggregation"
-        data-dojo-props="
-        field:'dataCentre_s',
-        label:'Partner system',
-        props:{size:40, order:{_term:'asc'}},
-        tootip:'Steward for this resource'">
-      </div>
-
-      <!-- added by SMR 2017-09-23 -->
-      <div data-dojo-type="app/search/TermsAggregation"
-        data-dojo-props="
-		field:'cited_individual_s',
-		label:'Investigator/Author',
-		props:{size:2000, order:{_term:'asc'}},
-		tooltip:'Cited originator of content'">
-      </div>
-      
-      <div data-dojo-type="app/search/TermsAggregation"
-        data-dojo-props="
-		field:'ieda_data_type_keywords_s',
-		label:'IEDA Data Type Categories',
-		props:{size:100, order:{_term:'asc'}},
-		tooltip:'High level data types from IEDA'">
-      </div>
-      
-      <div data-dojo-type="app/search/TermsAggregation"
-        data-dojo-props="
-		field:'feature_of_interest_keywords_s',
-		label:'IEDA Feature of Interest',
-		props:{size:100, order:{_term:'asc'}},
-		tooltip:'Geologic features, feature types and realms'">
-      </div>
-      
+ 
+<!-- IEDA Topic -->   
       <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'ieda_topic_keywords_s',
@@ -79,15 +45,26 @@ was src_source_name_s -->
 		props:{size:100, order:{_term:'asc'}},
 		tooltip:'IEDA Science subject areas'">
       </div>
- 
-	  <div data-dojo-type="app/search/TermsAggregation"
+
+<!-- IEDA Feature of Interest -->     
+      <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
-		field:'platform_keywords_s',
-		label:'Platforms',
-		props:{size:1000, order:{_term:'asc'}},
-		tooltip:'Observation platform or facility'">
-      </div> 
-      
+		field:'feature_of_interest_keywords_s',
+		label:'IEDA Feature of Interest',
+		props:{size:100, order:{_term:'asc'}},
+		tooltip:'Geologic features, feature types and realms'">
+      </div>
+
+<!-- IEDA  Data Type Categories -->   
+      <div data-dojo-type="app/search/TermsAggregation"
+        data-dojo-props="
+		field:'ieda_data_type_keywords_s',
+		label:'IEDA Data Type Categories',
+		props:{size:100, order:{_term:'asc'}},
+		tooltip:'High level data types from IEDA'">
+      </div>
+
+<!-- Instrument, sensor -->     
       <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'instrument_keywords_s',
@@ -95,15 +72,17 @@ was src_source_name_s -->
 		props:{size:1000, order:{_term:'asc'}},
 		tooltip:'Instruments or sensors used'">
       </div>
-         
-  <div data-dojo-type="app/search/TermsAggregation"
+ 
+<!-- platform, facility -->
+	  <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
-		field:'place_keywords_s',
-		label:'Place keywords',
+		field:'platform_keywords_s',
+		label:'Platforms',
 		props:{size:1000, order:{_term:'asc'}},
-		tooltip:'As tagged by data provider'">
-      </div>       
+		tooltip:'Observation platform or facility'">
+      </div> 
 
+<!-- projects, cruises, programs -->
 	  <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'project_keywords_s',
@@ -111,15 +90,43 @@ was src_source_name_s -->
 		props:{size:1000, order:{_term:'asc'}},
 		tooltip:'As tagged by data provider'">
       </div>
+
+ <!-- Place names -->        
+  <div data-dojo-type="app/search/TermsAggregation"
+        data-dojo-props="
+		field:'place_keywords_s',
+		label:'Place keywords',
+		props:{size:1000, order:{_term:'asc'}},
+		tooltip:'As tagged by data provider'">
+      </div>       
       
-            
+<!-- other tags from data providers, ordered by frequency -->        
       <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'tags_s',
 		label:'Other search terms',
 		props:{size:200},
-		tooltip:'Data type, devices, features, tags from data providers'">
+		tooltip:'Data type, devices, features, tags from data providers. Sorted by frequency'">
       </div>
+ 
+ <!-- Partner systems from dataCentre_s -->
+      <div data-dojo-type="app/search/TermsAggregation"
+        data-dojo-props="
+        field:'dataCentre_s',
+        label:'Partner system',
+        props:{size:40, order:{_term:'asc'}},
+        tootip:'Steward for this resource'">
+      </div>
+       
+<!-- map-based geolocation -->
+       <div  data-dojo-type="app/search/SpatialFilter"
+        data-dojo-props="
+          field: 'envelope_geo',
+          pointField: 'envelope_cen_pt',
+          allowAggregation: true,
+          open: false,
+          label:'${i18n.search.criteria.map}'">
+      </div> 
       
 
       <!-- end example hierarchies -->
