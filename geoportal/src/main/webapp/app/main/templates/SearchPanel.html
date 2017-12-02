@@ -15,16 +15,16 @@
           label:'${i18n.search.criteria.map}'">
       </div> 
 
-
-      <div data-dojo-type="app/search/DateFilter"
+<!-- change from date filter to temporal filter SMR 2017-11-15 
+ remove fieldsOperator:'should'-->
+      <div data-dojo-type="app/search/TemporalFilter"
            data-dojo-props="
           nestedPath:'timeperiod_nst',
           field:'timeperiod_nst.begin_dt',
           toField:'timeperiod_nst.end_dt',
           interval:'year',
           open:false,
-          label:'Acquisition date interval',
-          fieldsOperator: 'should'">
+          label:'Acquisition date interval'">
       </div>
 
 
