@@ -245,6 +245,7 @@ body {
 
 .g-item-card .g-item-title {
   font-weight: bold;
+  font-size: 14px;
 }
 
 .g-item-card .g-item-status {
@@ -260,7 +261,7 @@ body {
 .g-item-card .g-item-description, 
 .g-item-card .g-item-owner-and-date {
   padding: 2px;
-  font-size: 10px;
+  font-size: 12px;
   width: 85%;
 }
 .g-item-card .g-item-thumbnail {
