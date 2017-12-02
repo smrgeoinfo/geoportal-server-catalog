@@ -63,7 +63,7 @@ body {
 }
 
 .navbar-inverse {
-  background-color: #196fa6;
+  background-color: #024A61;
 }
 .navbar-inverse .navbar-nav > .active > a, 
 .navbar-inverse .navbar-nav > .active > a:hover, 
@@ -76,7 +76,7 @@ body {
 }
 .navbar-inverse .glyphicon, .navbar-inverse .navbar-brand {
   color: #ffffff;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
 }
 .g-app > .navbar {
