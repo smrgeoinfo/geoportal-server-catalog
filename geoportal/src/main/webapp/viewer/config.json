@@ -43,8 +43,8 @@
       {
         "uri": "widgets/Search/Widget",
         "position": {
-          "left": 155,
-          "top": 5
+          "left": 7,
+          "bottom": 55
         },
         "version": "2.0.1"
       },
