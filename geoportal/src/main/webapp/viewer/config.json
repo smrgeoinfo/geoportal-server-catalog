@@ -44,7 +44,7 @@
         "uri": "widgets/Search/Widget",
         "position": {
           "left": 7,
-          "bottom": 55
+          "bottom": 65
         },
         "version": "2.0.1"
       },
@@ -76,8 +76,8 @@
         "uri": "widgets/GeoportalSearch/Widget",
         "version": "2.0.1",
         "position":{
-          "left": 55,
-          "top": 55
+          "left": 160,
+          "top": 5
         }
       },
       {
