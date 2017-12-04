@@ -82,12 +82,30 @@
 		tooltip:'Observation platform or facility'">
       </div> 
 
+<!-- other tags from data providers, ordered by frequency -->        
+      <div data-dojo-type="app/search/TermsAggregation"
+        data-dojo-props="
+		field:'tags_s',
+		label:'Tags',
+		props:{size:200},
+		tooltip:'Data type, devices, features, tags from data providers. Sorted by frequency'">
+      </div>
+ 
+ <!-- Partner systems from dataCentre_s -->
+      <div data-dojo-type="app/search/TermsAggregation"
+        data-dojo-props="
+        field:'dataCentre_s',
+        label:'IEDA Partner System',
+        props:{size:40, order:{_term:'asc'}},
+        tootip:'Steward for this resource'">
+      </div>
+
 <!-- projects, cruises, programs -->
 	  <div data-dojo-type="app/search/TermsAggregation"
         data-dojo-props="
 		field:'project_keywords_s',
 		label:'Projects, cruises, programs',
-		props:{size:1000, order:{_term:'asc'}},
+		props:{size:2000, order:{_term:'asc'}},
 		tooltip:'As tagged by data provider'">
       </div>
 
@@ -100,23 +118,7 @@
 		tooltip:'As tagged by data provider'">
       </div>       
       
-<!-- other tags from data providers, ordered by frequency -->        
-      <div data-dojo-type="app/search/TermsAggregation"
-        data-dojo-props="
-		field:'tags_s',
-		label:'Other search terms',
-		props:{size:200},
-		tooltip:'Data type, devices, features, tags from data providers. Sorted by frequency'">
-      </div>
- 
- <!-- Partner systems from dataCentre_s -->
-      <div data-dojo-type="app/search/TermsAggregation"
-        data-dojo-props="
-        field:'dataCentre_s',
-        label:'Partner system',
-        props:{size:40, order:{_term:'asc'}},
-        tootip:'Steward for this resource'">
-      </div>
+
        
 <!-- map-based geolocation -->
        <div  data-dojo-type="app/search/SpatialFilter"
