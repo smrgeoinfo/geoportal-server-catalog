@@ -37,12 +37,12 @@ define(['jimu/shared/BaseVersionManager'],
               source.url = source.url ||
                 "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer";
               source.singleLineFieldName = source.singleLineFieldName || "SingleLine";
-              source.name = source.name || "Esri World Geocoder";
+              source.name = source.name || "Esri World Geocoder 1";
             } else if (typeof oldGeocoder.arcgisGeocoder === "boolean") {
               source.url = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer";
-              source.name = "Esri World Geocoder";
+              source.name = "Esri World Geocoder src";
               source.singleLineFieldName = "SingleLine";
-              source.placeholder = "Esri World Geocoder";
+              source.placeholder = "Esri World Geocoder ph";
             }
             source.countryCode = source.sourceCountry || source.countryCode || "";
             source.maxResults = oldGeocoder.maxLocations || defaultMaxResults;
