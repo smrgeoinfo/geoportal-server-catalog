@@ -30,14 +30,14 @@ define({
     },
     
     nav: {
-      brand: "Cinergi",
+      brand: "IEDA Integrated Catalog",
       home: "Home",
       search: "Search",
       map: "Map",
       about: "About",
       content: "Content",
       welcomePattern: "{name}",
-      signIn: "Sign In",
+      signIn: "Admin Sign In",
       signOut: "Sign Out",
       options: {
         createAccount: "Create Account",
