@@ -243,6 +243,7 @@ body {
   border-bottom: 1px solid #cccccc;
 }
 
+/* IEDA add font-size: 14, over ride inherited value */
 .g-item-card .g-item-title {
   font-weight: bold;
   font-size: 14px;
@@ -258,6 +259,7 @@ body {
 	margin-left: 20px;
 }
 
+/* IEDA increase font size from 10 to 12 */
 .g-item-card .g-item-description, 
 .g-item-card .g-item-owner-and-date {
   padding: 2px;
