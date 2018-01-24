@@ -83,3 +83,4 @@ fabric.properties
 
 *.bku
 
+geoportal/src/main/resources/config/authentication-simple.xml
