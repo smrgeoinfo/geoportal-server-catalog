@@ -121,8 +121,8 @@ public class SearchRequest extends _SearchRequestBase {
     String wq = JsonUtil.toJson(jsoQuery.build());
     search.setQuery(QueryBuilders.wrapperQuery(wq));
     // TODO some logging here
-    //LOGGER.info("SearchRequest: "+wq);
-    LOGGER.trace("SearchRequest: "+wq);
+    LOGGER.info("SearchRequest: "+wq);
+    //LOGGER.trace("SearchRequest: "+wq);
     SearchResponse searchResponse = search.get();
     writeResponse(response,searchResponse);
     return response;

@@ -26,6 +26,10 @@ function(declare, lang, array, ioQuery, SearchComponent) {
     postCreate: function() {
       this.inherited(arguments);
       
+      /* add to filter for only southern ocean or antarctica
+       * \x22 is escape sequence for double quote */
+      this._addQuery("Antarctica OR \x22Southern Ocean\x22");
+      
       var self = this, uri = window.location.href;
       if (uri.indexOf("?") !== -1) {
         var s = uri.substring(uri.indexOf("?")+1,uri.length);
