@@ -4,7 +4,9 @@ As part of the evolution of Geoportal Server, the catalog capability has been se
 This repository thus contains the catalog capability of Geoportal Server, while it's sibling [geoportal-server-harvester](https://github.com/ArcGIS/geoportal-server-harvester) is the new harvester of Geoportal Server.
 
 ## Releases and Downloads
-- v2.5.0-ieda.1 - Release January 25, 2018. Customized for IEDA Integrated Catalog
+- v2.5.0-ieda.1 - Release January 25, 2018. Customized for IEDA Integrated Catalog. Deployed at http://catalog.iedadata.org/geoportal
+- v2.5.0-sp.1  Customized for Antarctic/Southern Ocean geoportal. Deployed at http://catalog.iedadata.org/spcatalog/
+
 - 2.5.0 - Released January 6, 2017, click [here](https://github.com/ArcGIS/geoportal-server-catalog/releases) for release notes and downloads.
 - 2.0.2 - Released December 21, 2016, click [here](https://github.com/ArcGIS/geoportal-server-catalog/releases) for release notes and downloads.
 - 2.0.1 - Released June 24, 2016, click [here](https://github.com/ArcGIS/geoportal-server-catalog/releases) for release notes and downloads.
